@@ -1,16 +1,16 @@
 import { content, LANGS } from './content.js';
 import { contact } from './config.js';
 
-const esc = (s) => String(s).replace(/[&<>"]/g, (c) =>
-  ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) =>
+  ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 export function render(doc, lang) {
   const c = content[lang];
   doc.documentElement.lang = c.htmlLang;
   doc.title = c.title;
 
-  const wa = `https://wa.me/${contact.whatsapp}`;
-  const mail = `mailto:${contact.email}`;
+  const wa = `https://wa.me/${encodeURIComponent(contact.whatsapp)}`;
+  const mail = `mailto:${encodeURIComponent(contact.email)}`;
 
   doc.getElementById('app').innerHTML = `
     <h1>${esc(c.heroHeadline)}</h1>
@@ -37,8 +37,8 @@ export function render(doc, lang) {
       <h2>${esc(c.aboutHeading)}</h2>
       ${c.aboutParas.map((p) => `<p>${esc(p)}</p>`).join('')}
       <div class="cta">
-        <a class="primary" href="${wa}">${esc(c.ctaLabel)}</a>
-        <a class="secondary" href="${mail}">${esc(contact.email)}</a>
+        <a class="primary" href="${esc(wa)}">${esc(c.ctaLabel)}</a>
+        <a class="secondary" href="${esc(mail)}">${esc(contact.email)}</a>
       </div>
     </section>
   `;
@@ -49,7 +49,12 @@ export function render(doc, lang) {
 }
 
 function pickInitial(win) {
-  const stored = win.localStorage.getItem('keelLang');
+  let stored;
+  try {
+    stored = win.localStorage.getItem('keelLang');
+  } catch {
+    stored = undefined;
+  }
   if (LANGS.includes(stored)) return stored;
   const nav = (win.navigator.language || '').slice(0, 2);
   if (LANGS.includes(nav)) return nav;
@@ -59,13 +64,17 @@ function pickInitial(win) {
 export function init(doc, win) {
   const bar = doc.getElementById('langbar');
   bar.innerHTML = LANGS.map((l) =>
-    `<button type="button" data-lang="${l}" aria-pressed="false">${content[l].label}</button>`
+    `<button type="button" data-lang="${l}" aria-pressed="false">${esc(content[l].label)}</button>`
   ).join('');
 
   bar.addEventListener('click', (e) => {
     const btn = e.target.closest('button[data-lang]');
     if (!btn) return;
-    win.localStorage.setItem('keelLang', btn.dataset.lang);
+    try {
+      win.localStorage.setItem('keelLang', btn.dataset.lang);
+    } catch {
+      // Persistence is best-effort; the toggle still works this session.
+    }
     render(doc, btn.dataset.lang);
   });
 
