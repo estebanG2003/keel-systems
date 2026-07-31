@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keel Systems</title>
+<style>
+  :root {
+    --bg: #fbfaf8; --fg: #17181a; --muted: #5c6066;
+    --rule: #e2ded8; --accent: #1a4f7a; --card: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #131417; --fg: #ececee; --muted: #9a9ea6;
+      --rule: #2b2d33; --accent: #7fb4dd; --card: #1b1d21;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 43rem; margin: 0 auto; padding: 2rem 1.25rem 5rem; }
+  .langbar { display: flex; gap: .25rem; justify-content: flex-end; margin-bottom: 3rem; }
+  .langbar button {
+    font: inherit; font-size: .8rem; letter-spacing: .06em; padding: .35rem .7rem;
+    background: none; color: var(--muted); border: 1px solid var(--rule);
+    border-radius: 999px; cursor: pointer;
+  }
+  .langbar button[aria-pressed="true"] { color: var(--bg); background: var(--fg); border-color: var(--fg); }
+  h1 { font-size: clamp(1.9rem, 6vw, 2.7rem); line-height: 1.15; letter-spacing: -.02em; margin: 0 0 1rem; }
+  .sub { font-size: 1.15rem; color: var(--muted); margin: 0 0 3.5rem; }
+  h2 { font-size: 1.15rem; letter-spacing: .01em; margin: 0 0 1.5rem; }
+  section { border-top: 1px solid var(--rule); padding-top: 2.5rem; margin-top: 3.5rem; }
+  ul.triggers { list-style: none; padding: 0; margin: 0 0 1.75rem; }
+  ul.triggers li {
+    background: var(--card); border: 1px solid var(--rule); border-radius: .5rem;
+    padding: 1rem 1.15rem; margin-bottom: .6rem; font-style: italic;
+  }
+  .close { color: var(--muted); }
+  ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 0; }
+  ol.steps li { counter-increment: s; padding-left: 2.6rem; position: relative; margin-bottom: 1.75rem; }
+  ol.steps li::before {
+    content: counter(s); position: absolute; left: 0; top: -.1rem;
+    width: 1.8rem; height: 1.8rem; border-radius: 50%; border: 1px solid var(--rule);
+    display: grid; place-items: center; font-size: .9rem; color: var(--muted);
+  }
+  ol.steps .t { font-weight: 600; display: block; margin-bottom: .2rem; }
+  ol.steps .b { color: var(--muted); }
+  .cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+  .cta a {
+    display: inline-block; padding: .85rem 1.4rem; border-radius: .5rem;
+    text-decoration: none; font-weight: 600;
+  }
+  .cta a.primary { background: var(--accent); color: var(--bg); }
+  .cta a.secondary { border: 1px solid var(--rule); color: var(--fg); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="langbar" id="langbar" aria-label="Language"></nav>
+    <main id="app"></main>
+  </div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
