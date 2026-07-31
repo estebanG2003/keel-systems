@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Keel Systems</title>
+<meta name="description" content="I build small systems that catch the calls, messages and quotes that slip through while you are busy working.">
+<meta property="og:title" content="Keel Systems">
+<meta property="og:description" content="I build small systems that catch the calls, messages and quotes that slip through while you are busy working.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary">
 <style>
   :root {
     --bg: #fbfaf8; --fg: #17181a; --muted: #5c6066;
@@ -51,7 +57,7 @@
   .cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
   .cta a {
     display: inline-block; padding: .85rem 1.4rem; border-radius: .5rem;
-    text-decoration: none; font-weight: 600;
+    text-decoration: none; font-weight: 600; overflow-wrap: anywhere;
   }
   .cta a.primary { background: var(--accent); color: var(--bg); }
   .cta a.secondary { border: 1px solid var(--rule); color: var(--fg); }
@@ -60,7 +66,14 @@
 <body>
   <div class="wrap">
     <nav class="langbar" id="langbar" aria-label="Language"></nav>
-    <main id="app"></main>
+    <main id="app">
+      <h1>The work you're already doing, without you doing it.</h1>
+      <p class="sub">I build small systems that catch the calls, messages and quotes that slip through while you are busy working.</p>
+      <div class="cta">
+        <a class="primary" href="https://wa.me/18195002323">Start with a conversation</a>
+        <a class="secondary" href="mailto:esteban.gomez2003@gmail.com">esteban.gomez2003@gmail.com</a>
+      </div>
+    </main>
   </div>
   <script type="module" src="./app.js"></script>
 </body>

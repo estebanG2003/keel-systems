@@ -10,7 +10,7 @@ export function render(doc, lang) {
   doc.title = c.title;
 
   const wa = `https://wa.me/${encodeURIComponent(contact.whatsapp)}`;
-  const mail = `mailto:${encodeURIComponent(contact.email)}`;
+  const mail = `mailto:${contact.email}`;
 
   doc.getElementById('app').innerHTML = `
     <h1>${esc(c.heroHeadline)}</h1>

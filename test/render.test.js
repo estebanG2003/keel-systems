@@ -5,6 +5,7 @@ import { writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { content, LANGS } from '../content.js';
+import { contact } from '../config.js';
 
 const CHROME = process.env.CHROME_PATH ||
   'C:/Program Files/Google/Chrome/Application/chrome.exe';
@@ -153,6 +154,19 @@ for (const lang of LANGS) {
 // shows up going one way (e.g. a node cleared on the way to 'en' but not on
 // the way to 'fr') can't hide behind an untested direction.
 const TOGGLE_PAIRS = LANGS.flatMap((a) => LANGS.filter((b) => b !== a).map((b) => [a, b]));
+
+// Regression guard for the mailto encodeURIComponent bug (commit c7c126c):
+// encodeURIComponent(contact.email) percent-encodes the structural '@'
+// delimiter into '%40', producing a mailto URI with no domain. Assert the
+// real rendered href in the DOM is exactly `mailto:` + the plain email,
+// with no percent-encoding, so that regression can't come back unnoticed.
+test('rendered mailto href is not percent-encoded', () => {
+  const dom = renderedText('en');
+  const match = dom.match(/class="secondary" href="([^"]*)"/);
+  assert.ok(match, 'secondary (mailto) link not found in rendered DOM');
+  assert.equal(match[1], `mailto:${contact.email}`);
+  assert.ok(!match[1].includes('%40'), 'mailto href is percent-encoded');
+});
 
 for (const [from, to] of TOGGLE_PAIRS) {
   test(`toggle ${from} -> ${to}: stale ${from} content is fully replaced`, () => {
