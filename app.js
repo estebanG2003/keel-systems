@@ -55,7 +55,18 @@ export function render(doc, lang) {
   });
 }
 
-function pickInitial(win) {
+// Precedence: the page's own declared language, then a saved choice, then the
+// browser, then English.
+//
+// The declared language wins on purpose. /fr/ and /es/ exist so a forwarded
+// link previews with the right card, and whoever sent it chose that URL
+// deliberately for that recipient. A stale localStorage value from some
+// earlier visit must not override that intent. The root page declares
+// nothing, so there a saved choice still wins.
+function pickInitial(doc, win) {
+  const declared = doc.documentElement.dataset.initialLang;
+  if (LANGS.includes(declared)) return declared;
+
   let stored;
   try {
     stored = win.localStorage.getItem('keelLang');
@@ -63,6 +74,7 @@ function pickInitial(win) {
     stored = undefined;
   }
   if (LANGS.includes(stored)) return stored;
+
   const nav = (win.navigator.language || '').slice(0, 2);
   if (LANGS.includes(nav)) return nav;
   return 'en';
@@ -85,7 +97,7 @@ export function init(doc, win) {
     render(doc, btn.dataset.lang);
   });
 
-  render(doc, pickInitial(win));
+  render(doc, pickInitial(doc, win));
 }
 
 if (typeof document !== 'undefined' && typeof window !== 'undefined') {
