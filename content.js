@@ -25,10 +25,10 @@ export const content = {
     ],
     proofHeading: 'Already running',
     proofItems: [
-      { title: 'Actor Manager', body: 'An app for tracking auditions and bookings. Someone uses it every day to run their own work. It is not a demo.' },
-      { title: 'Inbox Gatekeeper', body: 'It reads an inbox and separates the messages that are actually someone trying to reach you from everything else. I run it on my own mail.' },
+      { title: 'Actor Manager', body: 'An app for tracking auditions and bookings. Someone uses it every day to run their own work.' },
+      { title: 'Inbox Gatekeeper', body: 'It reads an inbox and separates the messages that are actually someone trying to reach you from everything else.' },
     ],
-    aboutHeading: "Who you're dealing with",
+    aboutHeading: 'Who I am',
     aboutParas: [
       'I am Esteban. I build software in English, French and Spanish, based in Gatineau and working both sides of the river.',
       'I am building my first case studies right now, so I am taking on a small number of projects at a price that reflects that. What I want back is a result I can point to.',
@@ -60,10 +60,10 @@ export const content = {
     ],
     proofHeading: 'Déjà en marche',
     proofItems: [
-      { title: 'Actor Manager', body: "Une application pour gérer les auditions et les contrats. Quelqu'un s'en sert chaque jour pour son propre travail. Ce n'est pas une démo." },
-      { title: 'Inbox Gatekeeper', body: "Il lit une boîte de courriels et sépare les messages de quelqu'un qui essaie vraiment de vous joindre du reste. Je le fais rouler sur mes propres courriels." },
+      { title: 'Actor Manager', body: "Une application pour gérer les auditions et les contrats. Quelqu'un s'en sert chaque jour pour son propre travail." },
+      { title: 'Inbox Gatekeeper', body: "Il lit une boîte de courriels et sépare les messages de quelqu'un qui essaie vraiment de vous joindre du reste." },
     ],
-    aboutHeading: 'À qui vous avez affaire',
+    aboutHeading: 'Qui je suis',
     aboutParas: [
       "Je m'appelle Esteban. Je développe des logiciels en français, en anglais et en espagnol, à partir de Gatineau, des deux côtés de la rivière.",
       "Je bâtis mes premiers cas concrets en ce moment, alors je prends un petit nombre de projets à un prix qui le reflète. Ce que je veux en retour, c'est un résultat que je peux montrer.",
@@ -95,10 +95,10 @@ export const content = {
     ],
     proofHeading: 'Ya funcionando',
     proofItems: [
-      { title: 'Actor Manager', body: 'Una aplicación para manejar audiciones y contratos. Alguien la usa todos los días para su propio trabajo. No es una demo.' },
-      { title: 'Inbox Gatekeeper', body: 'Lee un buzón de correo y separa los mensajes de alguien que de verdad está tratando de contactarlo del resto. Lo uso en mi propio correo.' },
+      { title: 'Actor Manager', body: 'Una aplicación para manejar audiciones y contratos. Alguien la usa todos los días para su propio trabajo.' },
+      { title: 'Inbox Gatekeeper', body: 'Lee un buzón de correo y separa los mensajes de alguien que de verdad está tratando de contactarlo del resto.' },
     ],
-    aboutHeading: 'Con quién está tratando',
+    aboutHeading: 'Quién soy',
     aboutParas: [
       'Me llamo Esteban. Desarrollo software en español, inglés y francés, desde Gatineau, a ambos lados del río.',
       'Estoy construyendo mis primeros casos ahora mismo, así que estoy tomando un número pequeño de proyectos a un precio que lo refleja. Lo que quiero a cambio es un resultado que pueda mostrar.',
