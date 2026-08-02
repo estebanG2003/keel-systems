@@ -5,8 +5,8 @@ export const content = {
     label: 'EN',
     htmlLang: 'en',
     title: 'Keel Systems',
-    heroHeadline: "The work you're already doing, without you doing it.",
-    heroSub: 'I build small systems that catch the calls, messages and quotes that slip through while you are busy working.',
+    heroHeadline: 'Every business has that one thing somebody does by hand every week.',
+    heroSub: 'I build the software that does it instead. Quotes, callbacks, forms, reports, the same answer typed for the hundredth time.',
     triggersHeading: 'Does any of this sound familiar?',
     triggers: [
       "The phone rings while I'm with a client, and by the time I call back they've booked somewhere else.",
@@ -19,9 +19,14 @@ export const content = {
     triggersClose: "If you recognized one of these, that's the conversation.",
     howHeading: 'How it works',
     steps: [
-      { title: 'A conversation', body: 'Thirty minutes, in person or on a call. I watch how one thing actually works today. Free.' },
-      { title: 'One working thing', body: 'Two weeks. I build the thing that fixes the most expensive manual step we found. Fixed price, paid on delivery, only if it works.' },
-      { title: 'I keep it running', body: "A monthly fee so it stays alive, gets fixed when it breaks, and doesn't become one more thing you own and can't maintain." },
+      { title: 'A conversation', body: 'Thirty minutes, in person or on a call. I watch how one thing actually gets done today. Free.' },
+      { title: 'One thing, built', body: 'I build the piece that removes the most expensive manual step we found. I show you a few ways to scope it, starting at two weeks. Fixed price, paid on delivery, and only if it does what I said it would.' },
+      { title: 'I keep it alive', body: 'A monthly fee so it stays maintained, gets fixed the day it breaks, and never becomes one more thing you own and nobody understands.' },
+    ],
+    proofHeading: 'Already running',
+    proofItems: [
+      { title: 'Actor Manager', body: 'An app for tracking auditions and bookings. Someone uses it every day to run their own work. It is not a demo.' },
+      { title: 'Inbox Gatekeeper', body: 'It reads an inbox and separates the messages that are actually someone trying to reach you from everything else. I run it on my own mail.' },
     ],
     aboutHeading: "Who you're dealing with",
     aboutParas: [
@@ -35,8 +40,8 @@ export const content = {
     label: 'FR',
     htmlLang: 'fr',
     title: 'Keel Systems',
-    heroHeadline: 'Le travail que vous faites déjà, sans le faire vous-même.',
-    heroSub: 'Je bâtis de petits systèmes qui rattrapent les appels, les messages et les soumissions qui passent entre les mailles pendant que vous travaillez.',
+    heroHeadline: "Chaque entreprise a une affaire que quelqu'un fait à la main chaque semaine.",
+    heroSub: 'Moi, je bâtis le logiciel qui la fait à sa place. Les soumissions, les rappels, les formulaires, les rapports, la même réponse tapée pour la centième fois.',
     triggersHeading: 'Est-ce que ça vous parle?',
     triggers: [
       'Le téléphone sonne pendant que je suis avec un client, et quand je rappelle, la personne a déjà réservé ailleurs.',
@@ -49,14 +54,19 @@ export const content = {
     triggersClose: "Si vous vous êtes reconnu dans une de ces phrases, c'est de ça qu'on devrait parler.",
     howHeading: 'Comment ça marche',
     steps: [
-      { title: 'Une conversation', body: 'Trente minutes, en personne ou au téléphone. Je regarde comment une chose fonctionne vraiment aujourd’hui. Gratuit.' },
-      { title: 'Une chose qui fonctionne', body: "Deux semaines. Je bâtis ce qui règle l'étape manuelle la plus coûteuse qu'on a trouvée. Prix fixe, payable à la livraison, seulement si ça fonctionne." },
-      { title: 'Je la garde en vie', body: "Un montant mensuel pour qu'elle reste fonctionnelle, que je la répare quand elle brise, et qu'elle ne devienne pas une autre affaire que vous possédez sans pouvoir l'entretenir." },
+      { title: 'Une conversation', body: "Trente minutes, en personne ou au téléphone. Je regarde comment une affaire se fait vraiment aujourd'hui. Gratuit." },
+      { title: 'Une chose, bâtie', body: "Je bâtis le morceau qui enlève l'étape manuelle la plus coûteuse qu'on a trouvée. Je vous montre quelques façons de cadrer le projet, à partir de deux semaines. Prix fixe, payable à la livraison, et seulement si ça fait ce que j'ai dit." },
+      { title: 'Je la garde en vie', body: "Un montant mensuel pour qu'elle reste entretenue, que je la répare le jour où elle brise, et qu'elle ne devienne jamais une autre affaire que vous possédez et que personne ne comprend." },
+    ],
+    proofHeading: 'Déjà en marche',
+    proofItems: [
+      { title: 'Actor Manager', body: "Une application pour gérer les auditions et les contrats. Quelqu'un s'en sert chaque jour pour son propre travail. Ce n'est pas une démo." },
+      { title: 'Inbox Gatekeeper', body: "Il lit une boîte de courriels et sépare les messages de quelqu'un qui essaie vraiment de vous joindre du reste. Je le fais rouler sur mes propres courriels." },
     ],
     aboutHeading: 'À qui vous avez affaire',
     aboutParas: [
       "Je m'appelle Esteban. Je développe des logiciels en français, en anglais et en espagnol, à partir de Gatineau, des deux côtés de la rivière.",
-      'Je bâtis mes premiers cas concrets en ce moment, alors je prends un petit nombre de projets à un prix qui le reflète. Ce que je veux en retour, c’est un résultat que je peux montrer.',
+      "Je bâtis mes premiers cas concrets en ce moment, alors je prends un petit nombre de projets à un prix qui le reflète. Ce que je veux en retour, c'est un résultat que je peux montrer.",
     ],
     ctaLabel: 'Commencer par une conversation',
   },
@@ -65,8 +75,8 @@ export const content = {
     label: 'ES',
     htmlLang: 'es',
     title: 'Keel Systems',
-    heroHeadline: 'El trabajo que ya está haciendo, sin que usted lo haga.',
-    heroSub: 'Construyo sistemas pequeños que recuperan las llamadas, los mensajes y las cotizaciones que se pierden mientras usted está trabajando.',
+    heroHeadline: 'Toda empresa tiene esa cosa que alguien hace a mano todas las semanas.',
+    heroSub: 'Yo construyo el software que la hace. Las cotizaciones, las llamadas de vuelta, los formularios, los reportes, la misma respuesta escrita por centésima vez.',
     triggersHeading: '¿Le suena conocido?',
     triggers: [
       'El teléfono suena mientras estoy con un cliente, y cuando devuelvo la llamada ya reservaron en otro lado.',
@@ -79,9 +89,14 @@ export const content = {
     triggersClose: 'Si se reconoció en alguna de estas, de eso deberíamos hablar.',
     howHeading: 'Cómo funciona',
     steps: [
-      { title: 'Una conversación', body: 'Treinta minutos, en persona o por llamada. Miro cómo funciona de verdad una sola cosa hoy. Gratis.' },
-      { title: 'Una cosa que funciona', body: 'Dos semanas. Construyo lo que resuelve el paso manual más caro que encontramos. Precio fijo, se paga en la entrega, solo si funciona.' },
-      { title: 'Yo la mantengo funcionando', body: 'Una cuota mensual para que siga viva, la arreglo cuando se daña, y no se convierta en una cosa más que usted tiene y no puede mantener.' },
+      { title: 'Una conversación', body: 'Treinta minutos, en persona o por llamada. Miro cómo se hace de verdad una sola cosa hoy. Gratis.' },
+      { title: 'Una cosa, construida', body: 'Construyo la pieza que quita el paso manual más caro que encontramos. Le muestro algunas formas de definir el alcance, desde dos semanas. Precio fijo, se paga en la entrega, y solo si hace lo que dije.' },
+      { title: 'Yo la mantengo viva', body: 'Una cuota mensual para que siga mantenida, la arreglo el día que se daña, y nunca se convierta en una cosa más que usted tiene y nadie entiende.' },
+    ],
+    proofHeading: 'Ya funcionando',
+    proofItems: [
+      { title: 'Actor Manager', body: 'Una aplicación para manejar audiciones y contratos. Alguien la usa todos los días para su propio trabajo. No es una demo.' },
+      { title: 'Inbox Gatekeeper', body: 'Lee un buzón de correo y separa los mensajes de alguien que de verdad está tratando de contactarlo del resto. Lo uso en mi propio correo.' },
     ],
     aboutHeading: 'Con quién está tratando',
     aboutParas: [

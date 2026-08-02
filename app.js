@@ -12,9 +12,18 @@ export function render(doc, lang) {
   const wa = `https://wa.me/${encodeURIComponent(contact.whatsapp)}`;
   const mail = `mailto:${contact.email}`;
 
+  const ctaBlock = `
+    <div class="cta">
+      <a class="primary" href="${esc(wa)}">${esc(c.ctaLabel)}</a>
+      <a class="secondary" href="${esc(mail)}">${esc(contact.email)}</a>
+    </div>`;
+
   doc.getElementById('app').innerHTML = `
-    <h1>${esc(c.heroHeadline)}</h1>
-    <p class="sub">${esc(c.heroSub)}</p>
+    <div class="hero">
+      <h1>${esc(c.heroHeadline)}</h1>
+      <p class="sub">${esc(c.heroSub)}</p>
+      ${ctaBlock}
+    </div>
 
     <section>
       <h2>${esc(c.triggersHeading)}</h2>
@@ -34,12 +43,18 @@ export function render(doc, lang) {
     </section>
 
     <section>
+      <h2>${esc(c.proofHeading)}</h2>
+      <ul class="proof">
+        ${c.proofItems.map((p) =>
+          `<li><span class="t">${esc(p.title)}</span><span class="b">${esc(p.body)}</span></li>`
+        ).join('')}
+      </ul>
+    </section>
+
+    <section>
       <h2>${esc(c.aboutHeading)}</h2>
       ${c.aboutParas.map((p) => `<p>${esc(p)}</p>`).join('')}
-      <div class="cta">
-        <a class="primary" href="${esc(wa)}">${esc(c.ctaLabel)}</a>
-        <a class="secondary" href="${esc(mail)}">${esc(contact.email)}</a>
-      </div>
+      ${ctaBlock}
     </section>
   `;
 
