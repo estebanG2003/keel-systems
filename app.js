@@ -27,6 +27,7 @@ export function render(doc, lang) {
 
     <section>
       <h2>${esc(c.triggersHeading)}</h2>
+      <p class="lead">${esc(c.triggersLead)}</p>
       <ul class="triggers">
         ${c.triggers.map((t) => `<li>${esc(t)}</li>`).join('')}
       </ul>
