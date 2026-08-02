@@ -100,7 +100,7 @@ export const content = {
     ],
     aboutHeading: 'Quién soy',
     aboutParas: [
-      'Me llamo Esteban. Desarrollo software en español, inglés y francés, desde Gatineau, a ambos lados del río.',
+      'Me llamo Esteban. Desarrollo software en español, inglés y francés, desde Gatineau, Canadá.',
       'Estoy construyendo mis primeros casos ahora mismo, así que estoy tomando un número pequeño de proyectos a un precio que lo refleja. Lo que quiero a cambio es un resultado que pueda mostrar.',
     ],
     ctaLabel: 'Empezar con una conversación',
