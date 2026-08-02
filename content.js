@@ -24,11 +24,6 @@ export const content = {
       { title: 'One thing, built', body: 'I build the piece that removes the most expensive manual step we found. I show you a few ways to scope it, starting at two weeks. Fixed price, paid on delivery, and only if it does what I said it would.' },
       { title: 'I keep it alive', body: 'A monthly fee so it stays maintained, gets fixed the day it breaks, and never becomes one more thing you own and nobody understands.' },
     ],
-    proofHeading: 'Already running',
-    proofItems: [
-      { title: 'Actor Manager', body: 'An app for tracking auditions and bookings. Someone uses it every day to run their own work.' },
-      { title: 'Inbox Gatekeeper', body: 'It sorts the messages that are actually someone trying to reach you out from everything else. It runs on a real inbox every day.' },
-    ],
     aboutHeading: 'Who I am',
     aboutParas: [
       "I'm Esteban. I build software in English, French and Spanish. I'm based in Gatineau and I work both sides of the river.",
@@ -60,11 +55,6 @@ export const content = {
       { title: 'Une affaire, bâtie', body: "Je bâtis le morceau qui enlève l'étape manuelle la plus coûteuse qu'on a trouvée. Je vous montre quelques façons de cadrer le projet, à partir de deux semaines. Prix fixe, payable à la livraison, et seulement si ça fait ce que j'ai dit." },
       { title: 'Je la garde en vie', body: "Un montant mensuel pour qu'elle reste entretenue, que je la répare le jour où elle plante, et qu'elle ne devienne jamais une autre affaire que vous possédez et que personne ne comprend." },
     ],
-    proofHeading: 'Déjà en marche',
-    proofItems: [
-      { title: 'Actor Manager', body: "Une application pour gérer les auditions et les contrats. Quelqu'un s'en sert chaque jour pour son propre travail." },
-      { title: 'Inbox Gatekeeper', body: "Il trie une boîte de réception et met de côté ce qui est vraiment quelqu'un qui essaie de vous joindre. Il roule sur une vraie boîte chaque jour." },
-    ],
     aboutHeading: 'Qui je suis',
     aboutParas: [
       "Je m'appelle Esteban. Je développe des logiciels en français, en anglais et en espagnol. Je suis basé à Gatineau et je travaille des deux côtés de la rivière.",
@@ -95,11 +85,6 @@ export const content = {
       { title: 'Una conversación', body: 'Treinta minutos, en persona o por llamada. Miro cómo se hace de verdad una sola cosa hoy. Gratis.' },
       { title: 'Una cosa, construida', body: 'Construyo la pieza que quita el paso manual más caro que encontramos. Le muestro algunas formas de definir el alcance, a partir de dos semanas. Precio fijo, se paga en la entrega, y solo si hace lo que dije.' },
       { title: 'Yo la mantengo viva', body: 'Una cuota mensual para que siga funcionando. Le hago el mantenimiento, la arreglo el día que se daña, y así nunca se convierte en una cosa más que usted tiene y nadie entiende.' },
-    ],
-    proofHeading: 'Ya funcionando',
-    proofItems: [
-      { title: 'Actor Manager', body: 'Una aplicación para manejar audiciones y contratos. Alguien la usa todos los días para su propio trabajo.' },
-      { title: 'Inbox Gatekeeper', body: 'Separa lo que sí es alguien tratando de contactarlo, del resto del correo. Funciona sobre un buzón real todos los días.' },
     ],
     aboutHeading: 'Quién soy',
     aboutParas: [

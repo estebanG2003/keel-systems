@@ -44,15 +44,6 @@ export function render(doc, lang) {
     </section>
 
     <section>
-      <h2>${esc(c.proofHeading)}</h2>
-      <ul class="proof">
-        ${c.proofItems.map((p) =>
-          `<li><span class="t">${esc(p.title)}</span><span class="b">${esc(p.body)}</span></li>`
-        ).join('')}
-      </ul>
-    </section>
-
-    <section>
       <h2>${esc(c.aboutHeading)}</h2>
       ${c.aboutParas.map((p) => `<p>${esc(p)}</p>`).join('')}
       ${ctaBlock}
