@@ -2,10 +2,12 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { content, LANGS } from '../content.js';
 
+// "AI" appears verbatim in French and Spanish writing too, so every language
+// is checked against both the English and the localized form.
 const BANNED = {
-  en: [/\bAI\b/, /automation agency/i, /\bsolutions?\b/i],
-  fr: [/\bIA\b/, /agence d'automatisation/i, /\bsolutions?\b/i],
-  es: [/\bIA\b/, /agencia de automatizaci/i, /\bsoluciones?\b/i],
+  en: [/\bAI\b/, /\bIA\b/, /automation agency/i, /\bsolutions?\b/i],
+  fr: [/\bAI\b/, /\bIA\b/, /agence d'automatisation/i, /\bsolutions?\b/i],
+  es: [/\bAI\b/, /\bIA\b/, /agencia de automatizaci/i, /\bsoluciones?\b/i],
 };
 
 function allStrings(langObj) {
@@ -67,6 +69,18 @@ test('no statistics', () => {
   for (const lang of LANGS) {
     for (const s of allStrings(content[lang])) {
       assert.ok(!/\d+\s?%/.test(s), `${lang} copy contains a percentage: "${s}"`);
+    }
+  }
+});
+
+// Stronger than the percentage check above: any digit at all is banned, so
+// "Thirty minutes" cannot quietly become "30 minutes" and no figure, price or
+// statistic can enter the copy in any notation.
+test('no numerals or currency symbols anywhere in copy', () => {
+  for (const lang of LANGS) {
+    for (const s of allStrings(content[lang])) {
+      assert.ok(!/\d/.test(s), `${lang} copy contains a numeral: "${s}"`);
+      assert.ok(!/[$€£¢]/.test(s), `${lang} copy contains a currency symbol: "${s}"`);
     }
   }
 });

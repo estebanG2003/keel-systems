@@ -29,6 +29,23 @@ test('index.html static fallback hero sub matches content.en exactly', () => {
   );
 });
 
+test('index.html static fallback CTA label matches content.en exactly', () => {
+  assert.ok(
+    HTML.includes(`>${en.ctaLabel}</a>`),
+    `content.en.ctaLabel not found verbatim in the static fallback: "${en.ctaLabel}"`
+  );
+});
+
+test('index.html carries static language buttons for the no-JS case', () => {
+  for (const lang of ['en', 'fr', 'es']) {
+    assert.match(
+      HTML,
+      new RegExp(`<button[^>]*data-lang="${lang}"`),
+      `static langbar is missing the ${lang} button; a JS load failure would strand non-English readers`
+    );
+  }
+});
+
 test('index.html static fallback includes both contact links', () => {
   assert.ok(
     HTML.includes(`mailto:${contact.email}`),
@@ -68,8 +85,21 @@ test('og:locale tag is present', () => {
   assert.match(HTML, /<meta property="og:locale" content="[^"]+">/);
 });
 
-test('twitter:card is "summary"', () => {
+// summary_large_image, not summary: an og:image now exists, and the preview
+// card is the first thing a recipient sees when this link is forwarded.
+test('twitter:card is "summary_large_image"', () => {
   const match = HTML.match(/<meta name="twitter:card" content="([^"]*)">/);
   assert.ok(match, 'no twitter:card tag found');
-  assert.equal(match[1], 'summary');
+  assert.equal(match[1], 'summary_large_image');
+});
+
+test('og:image and og:url are present and same-origin', () => {
+  const img = HTML.match(/<meta property="og:image" content="([^"]*)">/);
+  const url = HTML.match(/<meta property="og:url" content="([^"]*)">/);
+  assert.ok(img, 'no og:image tag found; a forwarded link would preview with no thumbnail');
+  assert.ok(url, 'no og:url tag found');
+  assert.ok(
+    img[1].startsWith(url[1]),
+    `og:image must be served from the same origin as the page: ${img[1]}`
+  );
 });

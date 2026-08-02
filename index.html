@@ -9,18 +9,24 @@
 <meta property="og:description" content="I build the software that does it instead. Quotes, callbacks, forms, reports, the same answer typed for the hundredth time.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_CA">
-<meta name="twitter:card" content="summary">
+<meta property="og:locale:alternate" content="fr_CA">
+<meta property="og:locale:alternate" content="es_CO">
+<meta property="og:url" content="https://estebang2003.github.io/keel-systems/">
+<meta property="og:image" content="https://estebang2003.github.io/keel-systems/og.png">
+<meta name="twitter:card" content="summary_large_image">
 <style>
   :root {
-    --bg: #f6f4f0; --fg: #14212b; --muted: #55636e; --rule: #e3ded5;
+    --bg: #f6f4f0; --fg: #14212b; --muted: #55636e; --rule: #cfc8bc;
     --card: #ffffff; --ink: #10333f; --ink-fg: #eef5f7; --ink-muted: #a9c3cc;
     --accent: #0d6d80; --accent-soft: #e4eff1; --warm: #c0703c;
+    --on-accent: #ffffff; --on-warm: #2a1508;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #10161a; --fg: #e8eaec; --muted: #939ea6; --rule: #263139;
-      --card: #171f25; --ink: #0a1e26; --ink-fg: #e9f2f5; --ink-muted: #8fb0ba;
-      --accent: #56aec2; --accent-soft: #142e37; --warm: #dd9a63;
+      --bg: #10161a; --fg: #e8eaec; --muted: #939ea6; --rule: #3a4750;
+      --card: #171f25; --ink: #16323d; --ink-fg: #e9f2f5; --ink-muted: #a6c4ce;
+      --accent: #56aec2; --accent-soft: #172f38; --warm: #dd9a63;
+      --on-accent: #06181f; --on-warm: #2a1508;
     }
   }
   * { box-sizing: border-box; }
@@ -34,18 +40,18 @@
   .langbar { display: flex; gap: .3rem; justify-content: flex-end; margin-bottom: 1.25rem; }
   .langbar button {
     font: inherit; font-size: .78rem; font-weight: 600; letter-spacing: .07em;
-    padding: .4rem .75rem; background: none; color: var(--muted);
+    padding: .55rem .8rem; background: none; color: var(--muted);
     border: 1px solid var(--rule); border-radius: 999px; cursor: pointer;
   }
   .langbar button[aria-pressed="true"] {
-    color: #fff; background: var(--accent); border-color: var(--accent);
+    color: var(--on-accent); background: var(--accent); border-color: var(--accent);
   }
 
-  /* Hero panel — the colour anchor for the whole page */
+  /* Hero panel: the colour anchor. Kept distinct from --bg in BOTH schemes. */
   .hero {
     background: var(--ink); color: var(--ink-fg);
     border-radius: 1rem; padding: 2.5rem 1.5rem 2rem;
-    background-image: radial-gradient(120% 90% at 100% 0%, rgba(86,174,194,.22), transparent 60%);
+    background-image: radial-gradient(120% 90% at 100% 0%, rgba(120,200,220,.20), transparent 60%);
   }
   .hero h1 {
     font-size: clamp(1.75rem, 5.6vw, 2.5rem); line-height: 1.18;
@@ -53,21 +59,19 @@
   }
   .hero .sub { font-size: 1.05rem; color: var(--ink-muted); margin: 0 0 1.75rem; }
 
-  .eyebrow {
-    display: block; font-size: .72rem; font-weight: 700; letter-spacing: .13em;
-    text-transform: uppercase; color: var(--accent); margin: 0 0 .5rem;
-  }
   section { margin-top: 3rem; }
-  h2 { font-size: 1.3rem; letter-spacing: -.01em; margin: 0 0 1.25rem; }
+  h2 { font-size: 1.3rem; letter-spacing: -.01em; margin: 0 0 .75rem; }
+  .lead { font-size: 1.05rem; font-weight: 600; margin: 0 0 1.25rem; }
 
-  /* Triggers — light rules, not heavy cards, so they stop dominating the page */
-  .lead { font-size: 1.05rem; font-weight: 600; margin: -.5rem 0 1.25rem; }
+  /* Triggers are the OWNER speaking, not us. Quotes + italics mark the voice change. */
   ul.triggers { list-style: none; padding: 0; margin: 0 0 1.25rem; }
   ul.triggers li {
     border-left: 3px solid var(--accent); background: var(--accent-soft);
     border-radius: 0 .4rem .4rem 0; padding: .6rem .85rem;
-    margin-bottom: .45rem; font-size: .97rem; line-height: 1.5;
+    margin-bottom: .45rem; font-size: .97rem; line-height: 1.5; font-style: italic;
   }
+  ul.triggers li::before { content: "\201C"; }
+  ul.triggers li::after { content: "\201D"; }
   @media (min-width: 40rem) {
     ul.triggers { display: grid; grid-template-columns: 1fr 1fr; gap: .45rem; }
     ul.triggers li { margin-bottom: 0; }
@@ -79,7 +83,7 @@
   ol.steps li::before {
     content: counter(s); position: absolute; left: 0; top: 0;
     width: 2rem; height: 2rem; border-radius: 50%;
-    background: var(--warm); color: #fff;
+    background: var(--warm); color: var(--on-warm);
     display: grid; place-items: center; font-size: .95rem; font-weight: 700;
   }
   ol.steps .t { font-weight: 700; display: block; margin-bottom: .15rem; }
@@ -99,16 +103,22 @@
     display: inline-block; padding: .85rem 1.4rem; border-radius: .5rem;
     text-decoration: none; font-weight: 700; overflow-wrap: anywhere;
   }
-  .cta a.primary { background: var(--accent); color: #fff; }
+  .cta a.primary { background: var(--accent); color: var(--on-accent); }
   .cta a.secondary { border: 1px solid var(--rule); color: var(--fg); font-weight: 600; }
+  /* On the dark hero, a light button on dark ink beats any tinted fill for contrast. */
   .hero .cta { margin-top: 0; }
-  .hero .cta a.primary { background: var(--warm); color: #fff; }
-  .hero .cta a.secondary { border-color: rgba(255,255,255,.28); color: var(--ink-fg); }
+  .hero .cta a.primary { background: var(--ink-fg); color: var(--ink); }
+  .hero .cta a.secondary { border-color: rgba(255,255,255,.35); color: var(--ink-fg); }
 </style>
 </head>
 <body>
   <div class="wrap">
-    <nav class="langbar" id="langbar" aria-label="Language"></nav>
+    <!-- Buttons are static so a JS load failure still leaves the reader a way to switch language. init() re-renders them. -->
+    <nav class="langbar" id="langbar" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+      <button type="button" data-lang="es" aria-pressed="false">ES</button>
+    </nav>
     <main id="app">
       <div class="hero">
         <h1>Every business has that one thing somebody does by hand every week.</h1>

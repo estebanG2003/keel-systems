@@ -1,14 +1,21 @@
 import { test, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { writeFileSync, mkdtempSync, rmSync } from 'node:fs';
+import { writeFileSync, mkdtempSync, rmSync, existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { content, LANGS } from '../content.js';
 import { contact } from '../config.js';
 
-const CHROME = process.env.CHROME_PATH ||
-  'C:/Program Files/Google/Chrome/Application/chrome.exe';
+// Set CHROME_PATH to override. The fallbacks cover the usual install
+// locations so a clone on macOS or Linux is not dead on arrival.
+const CHROME = process.env.CHROME_PATH || [
+  'C:/Program Files/Google/Chrome/Application/chrome.exe',
+  'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe',
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  '/usr/bin/google-chrome',
+  '/usr/bin/chromium',
+].find((p) => existsSync(p)) || 'chrome';
 const ROOT = resolve(import.meta.dirname, '..');
 const APP_URL = `file:///${ROOT.replace(/\\/g, '/')}/app.js`;
 
