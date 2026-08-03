@@ -1,3 +1,13 @@
+// ⚠️ These three language blocks must say the SAME THINGS, not merely have the same shape.
+// The test suite checks keys and array lengths. It CANNOT see meaning, and on 2026-08-02 it
+// passed green while the Spanish silently kept superseded copy — a human reading it was the
+// only thing that caught it. Editing any string here means re-reading the other two. Every time.
+//
+// ⚠️ The word "AI/IA" is governed by decision #8b: never in the hero or the triggers, exactly
+// once in the build step, phrased as what the agent DOES rather than what it is. A capability
+// a referrer can repeat, not a category label. Two tests in test/content.test.js enforce both
+// halves — the ban everywhere else, and the single permitted mention.
+
 export const LANGS = ['en', 'fr', 'es'];
 
 export const content = {
@@ -21,7 +31,7 @@ export const content = {
     howHeading: 'How it works',
     steps: [
       { title: 'A conversation', body: 'Thirty minutes, in person or on a call. I watch how one thing actually gets done today. Free.' },
-      { title: 'One thing, built', body: 'I build the piece that removes the most expensive manual step we found. I show you a few ways to scope it, starting at two weeks. Fixed price, paid on delivery, and only if it does what I said it would.' },
+      { title: 'One thing, built', body: 'I build the piece that removes the most expensive manual step we found. Sometimes that\'s plain automation. Sometimes it\'s an AI agent that reads what comes in, works out what it is, and decides what to do. I show you a few ways to scope it, starting at two weeks. Fixed price, paid on delivery, and only if it does what I said it would.' },
       { title: 'I keep it alive', body: 'A monthly fee so it stays maintained, gets fixed the day it breaks, and never becomes one more thing you own and nobody understands.' },
     ],
     aboutHeading: 'Who I am',
@@ -52,7 +62,7 @@ export const content = {
     howHeading: 'Comment ça marche',
     steps: [
       { title: 'Une conversation', body: "Trente minutes, en personne ou au téléphone. Je regarde comment une affaire se fait vraiment aujourd'hui. Gratuit." },
-      { title: 'Une affaire, bâtie', body: "Je bâtis le morceau qui enlève l'étape manuelle la plus coûteuse qu'on a trouvée. Je vous montre quelques façons de cadrer le projet, à partir de deux semaines. Prix fixe, payable à la livraison, et seulement si ça fait ce que j'ai dit." },
+      { title: 'Une affaire, bâtie', body: "Je bâtis le morceau qui enlève l'étape manuelle la plus coûteuse qu'on a trouvée. Des fois c'est de l'automatisation simple. Des fois c'est un agent IA qui lit ce qui rentre, comprend ce que c'est, et décide quoi faire. Je vous montre quelques façons de cadrer le projet, à partir de deux semaines. Prix fixe, payable à la livraison, et seulement si ça fait ce que j'ai dit." },
       { title: 'Je la garde en vie', body: "Un montant mensuel pour qu'elle reste entretenue, que je la répare le jour où elle plante, et qu'elle ne devienne jamais une autre affaire que vous possédez et que personne ne comprend." },
     ],
     aboutHeading: 'Qui je suis',
@@ -83,12 +93,12 @@ export const content = {
     howHeading: 'Cómo funciona',
     steps: [
       { title: 'Una conversación', body: 'Treinta minutos, en persona o por llamada. Miro cómo se hace de verdad una sola cosa hoy. Gratis.' },
-      { title: 'Una cosa, construida', body: 'Construyo la pieza que quita el paso manual más caro que encontramos. Le muestro algunas formas de definir el alcance, a partir de dos semanas. Precio fijo, se paga en la entrega, y solo si hace lo que dije.' },
+      { title: 'Una cosa, construida', body: 'Construyo la pieza que quita el paso manual más caro que encontramos. A veces es automatización simple. A veces es un agente de IA que lee lo que llega, entiende qué es y decide qué hacer. Le muestro algunas formas de definir el alcance, a partir de dos semanas. Precio fijo, se paga en la entrega, y solo si hace lo que dije.' },
       { title: 'Yo la mantengo viva', body: 'Una cuota mensual para que siga funcionando. Le hago el mantenimiento, la arreglo el día que se daña, y así nunca se convierte en una cosa más que usted tiene y nadie entiende.' },
     ],
     aboutHeading: 'Quién soy',
     aboutParas: [
-      'Me llamo Esteban. Desarrollo software en español, inglés y francés, desde Gatineau, en la región de Ottawa, Canadá.',
+      'Me llamo Esteban. Desarrollo software en español, inglés y francés, desde Gatineau, en la región de Ottawa, Canadá, y trabajo de los dos lados del río.',
       'Estoy construyendo mis primeros casos concretos ahora mismo, así que estoy tomando un número pequeño de proyectos a un precio que lo refleja. Lo que quiero a cambio es un resultado que pueda mostrar.',
     ],
     ctaLabel: 'Empezar con una conversación',

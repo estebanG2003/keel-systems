@@ -5,10 +5,18 @@ import { content, LANGS } from '../content.js';
 // "AI" appears verbatim in French and Spanish writing too, so every language
 // is checked against both the English and the localized form.
 const BANNED = {
-  en: [/\bAI\b/, /\bIA\b/, /automation agency/i, /\bsolutions?\b/i],
-  fr: [/\bAI\b/, /\bIA\b/, /agence d'automatisation/i, /\bsolutions?\b/i],
-  es: [/\bAI\b/, /\bIA\b/, /agencia de automatizaci/i, /\bsoluciones?\b/i],
+  en: [/automation agency/i, /\bsolutions?\b/i],
+  fr: [/agence d'automatisation/i, /\bsolutions?\b/i],
+  es: [/agencia de automatizaci/i, /\bsoluciones?\b/i],
 };
+
+// AI/IA moved out of BANNED on 2026-08-02 when decision #8 was narrowed from
+// "banned outright" to "never in the hero or the triggers, exactly once in the
+// build step, phrased as a capability." The original rule was broader than its own
+// stated reason, which only argued against *leading* with it.
+// Both halves are enforced below — the ban everywhere else, AND the single mention.
+// Deleting either test re-opens the drift it exists to stop.
+const AI_WORDS = /\b(AI|IA)\b/g;
 
 function allStrings(langObj) {
   const out = [];
@@ -62,6 +70,31 @@ test('no banned marketing words', () => {
         assert.ok(!pattern.test(s), `${lang} copy matches banned ${pattern}: "${s}"`);
       }
     }
+  }
+});
+
+test('AI/IA appears nowhere outside the build step', () => {
+  for (const lang of LANGS) {
+    const buildBody = content[lang].steps[1].body;
+    for (const s of allStrings(content[lang])) {
+      if (s === buildBody) continue;
+      assert.ok(
+        !new RegExp(AI_WORDS.source).test(s),
+        `${lang}: AI/IA outside the build step, violating decision #8b: "${s}"`,
+      );
+    }
+  }
+});
+
+test('AI/IA appears exactly once, inside the build step', () => {
+  for (const lang of LANGS) {
+    const body = content[lang].steps[1].body;
+    const hits = (body.match(AI_WORDS) || []).length;
+    assert.equal(
+      hits,
+      1,
+      `${lang}: build step must name AI/IA exactly once (found ${hits}) — one mention is the capability claim, more is the commodity claim`,
+    );
   }
 });
 
