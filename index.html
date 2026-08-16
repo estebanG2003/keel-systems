@@ -14,30 +14,50 @@
 <meta property="og:url" content="https://estebang2003.github.io/keel-systems/">
 <meta property="og:image" content="https://estebang2003.github.io/keel-systems/og.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="en" href="https://estebang2003.github.io/keel-systems/">
 <link rel="alternate" hreflang="fr" href="https://estebang2003.github.io/keel-systems/fr/">
 <link rel="alternate" hreflang="es" href="https://estebang2003.github.io/keel-systems/es/">
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <div class="wrap">
-    <!-- Buttons are static so a JS load failure still leaves the reader a way to switch language. init() re-renders them. -->
-    <nav class="langbar" id="langbar" aria-label="Language">
-      <button type="button" data-lang="en" aria-pressed="true">EN</button>
-      <button type="button" data-lang="fr" aria-pressed="false">FR</button>
-      <button type="button" data-lang="es" aria-pressed="false">ES</button>
-    </nav>
-    <main id="app">
-      <div class="hero">
+  <header class="topbar">
+    <div class="wrap">
+      <span class="mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3.2 6.6 L12 17.2 L20.8 6.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="square"/><path d="M12 17.2 L12 21.4" stroke="currentColor" stroke-width="1.9" stroke-linecap="square"/></svg><b>Keel Systems</b></span>
+      <!-- Buttons are static so a JS load failure still leaves the reader a way
+           to switch language. init() re-renders them. -->
+      <nav class="langbar" id="langbar" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+        <button type="button" data-lang="es" aria-pressed="false">ES</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="app">
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Gatineau <span class="sep">/</span> Ottawa <span class="sep">/</span> EN <span class="sep">&middot;</span> FR <span class="sep">&middot;</span> ES</p>
         <h1>Every business has that one thing somebody does by hand every week.</h1>
         <p class="sub">I build the software that does it instead. Quotes, callbacks, forms, reports, the same answer typed for the hundredth time.</p>
         <div class="cta">
-          <a class="primary" href="https://wa.me/18195002323">Start with a conversation</a>
+          <a class="primary" href="https://wa.me/18195002323"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 5 5.2-1.4A10 10 0 1 0 12 2Zm5.6 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.5-.3.3c-.1.1-.2.3 0 .5.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.4.2.1.4.1.5-.1l.8-1c.2-.2.3-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.5Z"/></svg>Start with a conversation</a>
           <a class="secondary" href="mailto:esteban.gomez2003@gmail.com">esteban.gomez2003@gmail.com</a>
         </div>
       </div>
-    </main>
-  </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="row">
+        <span class="f-mark">Keel Systems</span>
+        <span class="f-meta">Gatineau, Qu&eacute;bec</span>
+        <a href="mailto:esteban.gomez2003@gmail.com">esteban.gomez2003@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
   <script type="module" src="./app.js"></script>
 </body>
 </html>

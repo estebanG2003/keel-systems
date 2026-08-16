@@ -7,7 +7,10 @@ Static trilingual (EN / FR / ES) single-page site. No dependencies, no build ste
 - `content.js` — all page copy, keyed by language. **Single source of truth.**
 - `config.js` — contact details.
 - `app.js` — renders the page from `content.js` and handles the language toggle.
-- `index.html` — shell, inline styles, and a static fallback so the page still says something with no JavaScript.
+- `index.html`, `fr/index.html`, `es/index.html` — the three entry shells. Each carries a static fallback so the page still says something with no JavaScript, and its own preview-card metadata.
+- `style.css` — every style, shared by all three shells. The shells carry no inline `<style>`; a test enforces that, so styling cannot drift between them.
+- `fonts/` — Geist and Geist Mono, self-hosted, latin subset. © Vercel, SIL Open Font License 1.1 (`fonts/OFL.txt`). Paths in `style.css` resolve relative to the stylesheet, so one path works from all three shells.
+- `favicon.svg` — the keel mark.
 - `og.png` — social preview card.
 
 ## Tests
