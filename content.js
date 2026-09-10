@@ -4,8 +4,9 @@
 // the Spanish silently kept superseded copy, which is the failure this removal ends.
 // Git history holds both blocks if they are ever wanted back.
 //
-// ⚠️ The word "AI" is governed by decision #8b: never in the hero or the triggers, exactly
-// once in the build step, phrased as what the agent DOES rather than what it is. Two tests
+// ⚠️ The word "AI" is governed by decision #8c (2026-09-09, replaces #8b): never in the hero
+// or the triggers, exactly
+// once in the audit step AND once in the build step, phrased as what it DOES. Two tests
 // in test/content.test.js enforce both halves. ⚠️ #8b is REOPENED as of 2026-09-09 because
 // the page went cold-traffic, which is gate 2 in BRIEF.md. Until it is re-ruled, it stands.
 export const LANGS = ['en'];
@@ -15,7 +16,7 @@ export const content = {
     label: 'EN',
     htmlLang: 'en',
     title: 'Keel Systems',
-    heroHeadline: "Every customer who calls you gets an answer, even when you're on a job.",
+    heroHeadline: 'The customers you lose are the ones who called while you were busy working.',
     heroSub: "I build the small systems that catch the calls, quotes and messages while you're working, so you can focus on the work in front of you.",
     triggersHeading: 'Does any of this sound familiar?',
     triggersLead: 'Most of what a business loses, it already had.',
@@ -30,7 +31,7 @@ export const content = {
     triggersClose: "If one of these is yours, that's the conversation. If yours isn't on the list, it probably belongs on it.",
     howHeading: 'How it works',
     steps: [
-      { title: 'A conversation', body: 'Thirty minutes, in person or on a call. I watch how one thing actually gets done today. Free.' },
+      { title: 'An AI audit', body: 'Thirty minutes, in person or on a call. I look at how work comes in today, and where it goes missing between the first message and the booked job. Free.' },
       { title: 'One thing, built', body: 'I build the piece that removes the most expensive manual step we found. Sometimes that\'s plain automation. Sometimes it\'s an AI agent that reads what comes in, works out what it is, and decides what to do. I show you a few ways to scope it, starting at two weeks. Fixed price, paid on delivery, and only if it does what I said it would.' },
       { title: 'I keep it alive', body: 'A monthly fee so it stays maintained, gets fixed the day it breaks, and never becomes one more thing you own and nobody understands.' },
     ],

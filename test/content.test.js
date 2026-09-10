@@ -10,12 +10,14 @@ const BANNED = {
   es: [/agencia de automatizaci/i, /\bsoluciones?\b/i],
 };
 
-// AI/IA moved out of BANNED on 2026-08-02 when decision #8 was narrowed from
-// "banned outright" to "never in the hero or the triggers, exactly once in the
-// build step, phrased as a capability." The original rule was broader than its own
-// stated reason, which only argued against *leading* with it.
-// Both halves are enforced below — the ban everywhere else, AND the single mention.
-// Deleting either test re-opens the drift it exists to stop.
+// AI/IA moved out of BANNED on 2026-08-02 (decision #8b: "never in the hero or the
+// triggers, exactly once in the build step"). Widened to #8c on 2026-09-09 when the page
+// went cold-traffic and fired gate 2 in BRIEF.md: with no referrer granting attention,
+// "AI audit" is the term a stranger searches, so step 1 names it too.
+//
+// #8c: never in the hero or the triggers. Exactly once in the audit step (steps[0]) and
+// exactly once in the build step (steps[1]), phrased as what it DOES, never as a category.
+// All three halves are enforced below. Deleting any of them re-opens the drift they stop.
 const AI_WORDS = /\b(AI|IA)\b/g;
 
 function allStrings(langObj) {
@@ -73,16 +75,32 @@ test('no banned marketing words', () => {
   }
 });
 
-test('AI/IA appears nowhere outside the build step', () => {
+test('AI/IA appears nowhere outside the audit and build steps', () => {
   for (const lang of LANGS) {
-    const buildBody = content[lang].steps[1].body;
+    const allowed = new Set([
+      content[lang].steps[0].title,
+      content[lang].steps[0].body,
+      content[lang].steps[1].body,
+    ]);
     for (const s of allStrings(content[lang])) {
-      if (s === buildBody) continue;
+      if (allowed.has(s)) continue;
       assert.ok(
         !new RegExp(AI_WORDS.source).test(s),
-        `${lang}: AI/IA outside the build step, violating decision #8b: "${s}"`,
+        `${lang}: AI/IA outside the audit and build steps, violating decision #8c: "${s}"`,
       );
     }
+  }
+});
+
+test('AI/IA appears exactly once across the audit step', () => {
+  for (const lang of LANGS) {
+    const step = content[lang].steps[0];
+    const hits = ((step.title + ' ' + step.body).match(AI_WORDS) || []).length;
+    assert.equal(
+      hits,
+      1,
+      `${lang}: audit step must name AI/IA exactly once (found ${hits}) - it is what a cold reader searches for, and twice makes it a category label`,
+    );
   }
 });
 
