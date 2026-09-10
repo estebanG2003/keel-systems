@@ -37,8 +37,8 @@ export const content = {
     ],
     aboutHeading: 'Who I am',
     aboutParas: [
-      "I'm Esteban. I build software in English, French and Spanish. I'm based in Gatineau and I work both sides of the river.",
-      "I'm building my first case studies right now, so I'm taking on a small number of projects at a price that reflects that. What I want back is a result I can point to.",
+      "I'm Esteban. I find the biggest thing slowing a business down and I build the system that takes it over, start to finish, so nobody has to touch it again. I'm based in Gatineau and I work both sides of the river. I speak English, French and Spanish, so we can work in whichever one is easiest for you.",
+      "I take a small number of projects at a time, because that way each one gets enough of my attention to be built properly. What I want in return is a result you are glad to talk about, and a name you would pass to a friend.",
     ],
     ctaLabel: 'Start with a conversation',
   },
