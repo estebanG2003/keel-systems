@@ -40,6 +40,6 @@ export const content = {
       "I'm Esteban. I find the biggest thing holding a business back, and I build a system around it so the business can get bigger without your day getting longer. I'm based in Gatineau and I work both sides of the river. I speak English, French and Spanish, so we can work in whichever one is easiest for you.",
       "I take a small number of projects at a time, because that way each one gets enough of my attention to be built properly. What I want in return is a result you are glad to talk about, and a name you would pass to a friend.",
     ],
-    ctaLabel: 'Start with a conversation',
+    ctaLabel: 'Message me for the free audit',
   },
 };
